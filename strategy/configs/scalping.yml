@@ -1,0 +1,28 @@
+# Configuration for the Scalping Strategy
+
+# List of instruments to trade. Find keys using the Upstox API or other tools.
+# Example: 'NSE_INDEX|Nifty 50', 'NSE_INDEX|Nifty Bank', 'NSE_FO|NIFTY25JANFUT'
+instruments:
+  - 'NSE_INDEX|Nifty 50'
+  - 'NSE_INDEX|Nifty Bank'
+
+# Timeframe for the candles. Supported values depend on the broker API.
+# For Upstox: '1minute', '5minute', '10minute', '30minute', 'day', 'week', 'month'
+timeframe: '1minute'
+
+# --- Indicator Settings ---
+ma_period: 21         # Period for JMA, EMA, and SMA
+adx_period: 14        # Period for ADX
+adx_threshold: 25     # Minimum ADX value to consider a trend strong enough for a signal
+
+# --- Risk Management Settings ---
+sl_lookback_period: 10 # Number of candles to look back for swing high/low for stop-loss
+rr_ratio: 1.5         # Risk:Reward ratio for partial profit target (e.g., 1.5 means target is 1.5 * risk away from entry)
+partial_profit_pct: 0.7 # Percentage of position to exit at the profit target (e.g., 0.7 = 70%)
+
+# --- Order Settings ---
+quantity: 1           # The quantity to trade for each order
+product_type: 'I'     # 'I' for Intraday, 'D' for Delivery
+
+# --- Data Management ---
+max_candles: 200      # Maximum number of historical candles to keep in memory per instrument
