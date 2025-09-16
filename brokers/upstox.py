@@ -2,7 +2,7 @@ import os
 from dotenv import load_dotenv
 import upstox_client
 from logger import logger
-from .base import BrokerBase
+from brokers.base import BrokerBase
 
 load_dotenv()
 
